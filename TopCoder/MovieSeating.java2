@@ -1,0 +1,61 @@
+// Paste me into the FileEdit configuration dialog
+
+public class MovieSeating {
+   public long getSeatings(int numFriends, String[] hall) {
+		int result = 0;
+		int empties;
+		
+		// iterate rows
+		for (int i = 0; i < hall.length; i++) {
+		    empties = getNumberOccurrences(hall[i].toCharArray(), '.');
+		    result += getKPermutationOfN(numFriends, empties);
+		}
+		
+		char[] temp = new char[hall.length];
+		// iterate columns
+		for (int i = 0; i < hall[0].length(); i++) {
+            for (int j = 0; j < hall.length; j++) {
+                temp[j] = hall[j].charAt(i);
+            }
+            empties = getNumberOccurrences(temp, '.');
+            result += getKPermutationOfN(numFriends, empties);
+        }
+		
+	return result;
+   }
+
+   private static long getKPermutationOfN(int k, int n) {
+       long result = 1;
+       int soFar = n;
+       
+       while (soFar > n - k) {
+           result *= soFar;
+           soFar--;
+       }
+       
+       return result;       
+   }
+   
+   private static int getNumberOccurrences(char[] s, char c) {
+       int result = 0;
+       for (int i = 0; i < s.length; i++) {
+           if (s[i] == c) {
+               result++;
+           }
+       }
+       
+       return result;
+   }
+
+}
+
+
+
+// Powered by FileEdit
+// Powered by moj 4.18 [modified TZTester]
+// Powered by CodeProcessor
+
+
+// Powered by FileEdit
+// Powered by moj 4.18 [modified TZTester]
+// Powered by CodeProcessor
