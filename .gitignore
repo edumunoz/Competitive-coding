@@ -4,5 +4,9 @@
 *.jar
 *.jnlp
 *.out
+*.bak
 .idea/
 Eclipse/
+out/
+code/
+code.iml
