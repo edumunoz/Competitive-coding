@@ -1,0 +1,70 @@
+PROBLEM STATEMENT
+
+You are given two positive integers x and k. Return the k-th smallest positive integer y (where k is 1-based) for which the following equation holds:
+x + y = x | y
+where '|' denotes the bitwise OR operator.
+
+
+
+DEFINITION
+Class:BitwiseEquations
+Method:kthPlusOrSolution
+Parameters:int, int
+Returns:long
+Method signature:long kthPlusOrSolution(int x, int k)
+
+
+CONSTRAINTS
+-x will be between 1 and 2,000,000,000, inclusive.
+-k will be between 1 and 2,000,000,000, inclusive.
+
+
+EXAMPLES
+
+0)
+5
+1
+
+Returns: 2
+
+The first positive integer for which the equation holds is 2.
+You can check that 5+2=7 as well as 5|2=7. Both plus and bitwise OR look like the following:
+
+ 101
++ 10
+ ---
+ 111
+
+
+
+1)
+5
+5
+
+Returns: 18
+
+The fifth number for which the equation 5 + y = 5 | y holds is 18. The first four solutions are 2,8,10,16.
+The binary sum for 18 looks like the following:
+
+   101
++10010
+ -----
+ 10111
+
+
+2)
+10
+3
+
+Returns: 5
+
+The third solution is 5. The first two solutions are 1 and 4.
+
+
+3)
+1
+1000000000
+
+Returns: 2000000000
+
+
