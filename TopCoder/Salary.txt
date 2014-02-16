@@ -1,0 +1,71 @@
+PROBLEM STATEMENT
+Often employees at a company time stamp their arrivals and departures, so when the month is over the boss can check how much each employee has worked. Given the time stamps for a single employee during a single day as well as his (or her) hourly wage, calculate how much the employee has earned that day.
+
+The time stamps are given in the format "hh:mm:ss" (quotes for clarity only) where hh is the hour (between 00 and 23 inclusive), mm is the minute (between 00 and 59 inclusive) and ss is the second (between 00 and 59 inclusive). All these numbers have exactly two digits. The arrival time stamps are inclusive, and the departure time stamps are exclusive, so an employee arriving at 09:00:00 one day and departing 17:30:00 the same day has worked exactly 8 hours 30 minutes 0 seconds during that interval.
+
+An employee working during evenings (between 18:00:00 and 23:59:59, inclusive) or nights (between 00:00:00 and 05:59:59, inclusive) gets paid one and a half times as much during that period.
+
+Create a class Salary containing the method howMuch which takes a String[], arrival, and a String[], departure, the arrival and departures times of an employee, respectively, as well an int wage, the hourly wage (in cents). Your method should return an int representing the total amount (in cents) the employee earned during the time he or she worked. The amount should be rounded down to the largest integer less than or equal to the actual amount. Element i in arrival corresponds to element i in departure.
+
+DEFINITION
+Class:Salary
+Method:howMuch
+Parameters:String[], String[], int
+Returns:int
+Method signature:int howMuch(String[] arrival, String[] departure, int wage)
+
+
+CONSTRAINTS
+-arrival will contain between 1 and 10 elements, inclusive.
+-departure will contain between 1 and 10 elements, inclusive.
+-arrival will contain the same number of elements as departure.
+-All elements in arrival and departure will be in the form "hh:mm:ss" (quotes for clarity only) satisfying the constraints given above.
+-All time stamps will be strictly increasing; that is, arrival[0]<departure[0]<arrival[1]<departure[1] and so on.
+-wage will be between 100 and 10000, inclusive.
+
+
+EXAMPLES
+
+0)
+{"08:00:00","13:00:00","19:27:32"}
+{"12:00:00","17:00:00","20:48:10"}
+1000
+
+Returns: 10015
+
+This employee worked 4 hours, took a break and then worked 4 more hours. Later
+he got back to work and worked 1 hour, 20 minutes and 38 seconds overtime.
+The salary becomes (4+4)*1000 + (1+20/60+38/3600)*1000*1.5 = 10015.83333 which is
+rounded down to 10015.
+
+
+1)
+{"01:05:47","16:48:12"}
+{"09:27:30","21:17:59"}
+2000
+
+Returns: 33920
+
+2)
+{"00:00:00"}
+{"23:59:59"}
+10000
+
+Returns: 299995
+
+3)
+{"10:00:00"}
+{"18:00:00"}
+10000
+
+Returns: 80000
+
+Notice that 18:00:00 is exclusive, so the last second was not overtime.
+
+
+4)
+{"22:19:46"}
+{"23:12:46"}
+5320
+
+Returns: 7049

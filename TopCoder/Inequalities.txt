@@ -1,0 +1,62 @@
+PROBLEM STATEMENT
+You're given a set of inequalities. Each of the inequalities refers to the variable X. Determine the maximum subset of the given set which has a solution.
+
+To make your task easier, the inequalities in the given set are always reduced to one of the following five forms:
+
+	X < C
+	X <= C
+	X = C
+	X > C
+	X >= C
+
+Here, C indicates some non-negative integer constant.
+
+The inequalities are given in the String[] inequalities, where each element is a single inequality formatted as shown above. Return the maximal number of inequalities of the set which can be satisfied simultaneously.
+
+DEFINITION
+Class:Inequalities
+Method:maximumSubset
+Parameters:String[]
+Returns:int
+Method signature:int maximumSubset(String[] inequalities)
+
+
+NOTES
+-Note that X doesn't have to be an integer or positive number.
+
+
+CONSTRAINTS
+-inequalities will contain between 1 and 50 elements, inclusive.
+-Each element of inequalities will be formatted "X <E> <C>", where 'X' is uppercase, <E> is one of "<", "<=", "=", ">=" or ">", and <C> is an integer between 0 and 1000, inclusive, with no extra leading zeroes (all quotes for clarity).
+-No two elements of inequalities will be equal.
+
+
+EXAMPLES
+
+0)
+{"X <= 12","X = 13","X > 9","X < 10","X >= 14"}
+
+Returns: 3
+
+Any value between 9 and 10 will satisfy the first, third and fourth inequalities.
+
+1)
+{"X < 0","X <= 0"}
+
+Returns: 2
+
+The solution to the whole set is any negative number.
+
+2)
+{"X = 1","X = 2","X = 3","X > 0"}
+
+Returns: 2
+
+Obviously, you can choose no more than one equality in addition to the fourth inequality.
+
+3)
+{"X <= 521","X >= 521","X = 521","X > 902","X > 12","X <= 1000"}
+
+Returns: 5
+
+The best choice is number 521.
